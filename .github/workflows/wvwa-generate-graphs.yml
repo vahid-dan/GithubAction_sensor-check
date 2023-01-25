@@ -16,7 +16,7 @@ jobs:
       - name: Checkout with wvwa-generate-graphs branch
         uses: actions/checkout@v2
         with:
-          ref: wvwa-generate-graphs
+          ref: main
           fetch-depth: 1
 
       - name: Run automatic prediction file
