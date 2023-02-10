@@ -11,6 +11,11 @@ jobs:
 
     # Load repo and install R
     steps:
+      - name: Checkout with wvwa-generate-graphs branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 1
           
       - name: Download R script
         run: wget https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/wvwa-generate-graphs/wvwa-generate-graphs.R
