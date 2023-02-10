@@ -20,19 +20,8 @@ jobs:
           fetch-depth: 1
 
       - name: Run automatic prediction file
-        env:
-          FORECAST_CODE_BRANCH: main
-          CONFIG_SET: defaultV2
-          CONFIGURE_RUN: configure_run.yml
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
-          USE_HTTPS: TRUE
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run:  | 
-          git clone https://github.com/vahid-dan/FCRE-forecast-code.git
-          cd FCRE-forecast-code/
-          /usr/local/bin/r workflows/defaultV2/combined_workflow.R
+          docker run --rm -v ${{ github.workspace }}:/root/flare yjungku/wvwa-generate-graphs
       
       # Commit files ,and push
       - name: Commit files
