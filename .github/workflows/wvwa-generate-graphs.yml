@@ -8,8 +8,6 @@ jobs:
   generate-graphs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container:
-      image: flareforecast/flare:22.12.b6
 
     # Load repo and install R
     steps:
