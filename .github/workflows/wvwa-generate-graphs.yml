@@ -17,6 +17,13 @@ jobs:
           ref: main
           fetch-depth: 1
           
+      - name: Setup Rclone
+        uses: AnimMouse/setup-rclone@v1
+        with:
+          rclone_config: ${{ secrets.RCLONE_CONFIG }}
+      
+      - run: rclone lsf s3flare:drivers/
+          
       - name: Download R script
         run: wget https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/wvwa-generate-graphs/wvwa-generate-graphs.R
       
