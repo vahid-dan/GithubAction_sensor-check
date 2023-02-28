@@ -22,7 +22,8 @@ jobs:
         with:
           rclone_config: ${{ secrets.RCLONE_CONFIG }}
       
-      - run: rclone lsf s3flare:drivers/
+      - run: rclone copy s3flare:wvwa-graphs/scripts/wvwa-generate-graphs.R ${{ github.workspace }}
+      - run: ls ${{ github.workspace }}
           
       - name: Download R script
         run: wget https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/wvwa-generate-graphs/wvwa-generate-graphs.R
